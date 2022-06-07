@@ -13,19 +13,17 @@ namespace Compi.SpecificationPattern.Logic.Infrastructure.Repositories.Maps
     {
         public void Configure(EntityTypeBuilder<Project> builder)
         {
-            builder.ToTable("Projects");
 
-            builder.Property(x => x.Id)
+            builder
+                .ToTable("Projects");
+
+            builder
+                .Property(x => x.Id)
                 .ValueGeneratedOnAdd();
 
             builder
               .Property(x => x.Name)
               .HasMaxLength(200);
-
-
-            //builder
-            //  .Property(x => x.StartDate)
-            //  .HasMaxLength(200);
 
 
         }

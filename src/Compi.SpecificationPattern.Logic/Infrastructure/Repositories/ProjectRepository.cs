@@ -33,12 +33,22 @@ namespace Compi.SpecificationPattern.Logic.Infrastructure.Repositories
         }
 
 
-        public List<Project> GetProjectInRange()
+
+        public Project GetProjectById(int id)
+        {
+
+            var project = _context.Projects.FirstOrDefault(x=> x.Id == id);
+         
+            return project;
+        }
+
+
+        public List<Project> GetProjectsWithProblems()
         {
 
            var projects = _context
                 .Projects
-                .Where(x => x.StartDate > new DateTimeOffset(2022, 1, 1, 0, 0, 0, TimeSpan.Zero) && x.EndDate <=  DateTimeOffset.UtcNow.AddMonths(1))
+                .Where( x => x.EndDate <=  DateTimeOffset.UtcNow.AddMonths(1) || x.Status == Status.Pending)
                 .ToList();
 
             return projects;
