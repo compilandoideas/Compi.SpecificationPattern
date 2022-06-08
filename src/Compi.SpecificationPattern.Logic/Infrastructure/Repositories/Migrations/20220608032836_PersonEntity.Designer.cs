@@ -4,6 +4,7 @@ using Compi.SpecificationPattern.Logic.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Compi.SpecificationPattern.Logic.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220608032836_PersonEntity")]
+    partial class PersonEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,8 +34,7 @@ namespace Compi.SpecificationPattern.Logic.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProjectId")
                         .HasColumnType("int");
@@ -45,7 +46,7 @@ namespace Compi.SpecificationPattern.Logic.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("People", (string)null);
+                    b.ToTable("Person");
                 });
 
             modelBuilder.Entity("Compi.SpecificationPattern.Logic.DomainModel.Project", b =>

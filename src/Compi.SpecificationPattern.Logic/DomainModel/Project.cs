@@ -15,6 +15,8 @@ namespace Compi.SpecificationPattern.Logic.DomainModel
         public DateTimeOffset EndDate { get; set; }
         public Status Status { get; set; }
 
+        public List<Person> People { get; set; }
+
 
         public static readonly Expression<Func<Project, bool>> IsOnTime = 
             x => x.EndDate <= DateTimeOffset.UtcNow && (x.Status != Status.Complete);

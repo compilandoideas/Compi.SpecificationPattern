@@ -18,8 +18,14 @@ builder.Services.AddTransient<ProjectRepository>();
 string connectionString = builder.Configuration["ConnectionString"].ToString();
 
 builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseSqlServer(connectionString)
-    );
+    options =>
+    {
+        options.UseSqlServer(connectionString);
+        options.EnableDetailedErrors();
+        options.EnableSensitiveDataLogging();
+
+    }
+);
 
 
 

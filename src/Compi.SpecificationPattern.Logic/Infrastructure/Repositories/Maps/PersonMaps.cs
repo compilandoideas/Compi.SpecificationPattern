@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace Compi.SpecificationPattern.Logic.Infrastructure.Repositories.Maps
 {
-    public class ProjectMaps : IEntityTypeConfiguration<Project>
+    public class PersonMaps : IEntityTypeConfiguration<Person>
     {
-        public void Configure(EntityTypeBuilder<Project> builder)
+        public void Configure(EntityTypeBuilder<Person> builder)
         {
-
             builder
-                .ToTable("Projects");
+                .ToTable("People");
 
             builder
                 .HasKey(x => x.Id);
@@ -25,8 +24,8 @@ namespace Compi.SpecificationPattern.Logic.Infrastructure.Repositories.Maps
                 .ValueGeneratedOnAdd();
 
             builder
-              .Property(x => x.Name)
-              .HasMaxLength(200);
+                .Property(x => x.Name)
+                .HasMaxLength(200);
 
 
         }

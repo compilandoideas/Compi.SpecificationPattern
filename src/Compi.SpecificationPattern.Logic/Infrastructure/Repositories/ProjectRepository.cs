@@ -1,7 +1,9 @@
 ﻿using Compi.SpecificationPattern.Logic.DomainModel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,6 +55,33 @@ namespace Compi.SpecificationPattern.Logic.Infrastructure.Repositories
 
             return projects;
 
+        }
+
+
+        public List<Project> SearchProjects(Expression<Func<Project, bool>> predicate)
+        {
+            var projects = _context.Projects.Where(predicate).ToList();
+
+            return projects;
+        }
+
+
+        public IReadOnlyList<Project> SearchProjects(GenericSpecification<Project> specification)
+        {
+            var projects = _context.Projects.Where(specification.Expression).ToList();
+
+            return projects;
+        }
+
+        public IReadOnlyList<Project> GetProjectsDelayed(Specification<Project> specification)
+        {
+            var projects = _context
+                .Projects
+                .Where(specification.ToExpression())
+                .Include(x => x.People)
+                .ToList();
+
+            return projects;
         }
 
     }
