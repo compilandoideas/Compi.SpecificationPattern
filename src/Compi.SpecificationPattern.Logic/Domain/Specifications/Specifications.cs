@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compi.SpecificationPattern.Logic.Domain
+namespace Compi.SpecificationPattern.Logic.Domain.Specifications
 {
     public abstract class Specification<T>
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Compi.SpecificationPattern.Logic.Domain.Specifications;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;

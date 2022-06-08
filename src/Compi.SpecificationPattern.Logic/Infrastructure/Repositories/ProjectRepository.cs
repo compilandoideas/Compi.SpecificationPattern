@@ -1,4 +1,5 @@
 ﻿using Compi.SpecificationPattern.Logic.Domain;
+using Compi.SpecificationPattern.Logic.Domain.Specifications;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
