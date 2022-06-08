@@ -1,4 +1,5 @@
 ﻿
+using Compi.SpecificationPattern.Logic.Domain;
 using Compi.SpecificationPattern.Logic.DomainModel;
 using Compi.SpecificationPattern.Logic.Infrastructure.Repositories;
 using Compi.SpecificationPattern.Logic.Utils;

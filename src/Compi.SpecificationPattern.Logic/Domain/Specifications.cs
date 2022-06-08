@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compi.SpecificationPattern.Logic.DomainModel
+namespace Compi.SpecificationPattern.Logic.Domain
 {
     public abstract class Specification<T>
     {
@@ -89,7 +89,7 @@ namespace Compi.SpecificationPattern.Logic.DomainModel
             return Expression.Lambda<Func<T, bool>>(orExpression, lefExpression.Parameters.Single());
 
 
-          
+
 
         }
     }
@@ -104,12 +104,12 @@ namespace Compi.SpecificationPattern.Logic.DomainModel
             _specification = specification;
         }
 
-     
+
 
         public override Expression<Func<T, bool>> ToExpression()
         {
             Expression<Func<T, bool>> expression = _specification.ToExpression();
-           
+
 
             UnaryExpression notExpression = Expression.Not(expression.Body);
 
@@ -134,5 +134,5 @@ namespace Compi.SpecificationPattern.Logic.DomainModel
 
 
 
-   
+
 }

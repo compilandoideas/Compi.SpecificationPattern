@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compi.SpecificationPattern.Logic.DomainModel
+namespace Compi.SpecificationPattern.Logic.Domain
 {
     public class Project
     {
@@ -18,9 +18,9 @@ namespace Compi.SpecificationPattern.Logic.DomainModel
         public List<Person> People { get; set; }
 
 
-        public static readonly Expression<Func<Project, bool>> IsOnTime = 
-            x => x.EndDate <= DateTimeOffset.UtcNow && (x.Status != Status.Complete);
-        
+        public static readonly Expression<Func<Project, bool>> IsOnTime =
+            x => x.EndDate <= DateTimeOffset.UtcNow && x.Status != Status.Complete;
+
     }
 
     public enum Status

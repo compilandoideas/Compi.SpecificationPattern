@@ -1,4 +1,4 @@
-﻿using Compi.SpecificationPattern.Logic.DomainModel;
+﻿using Compi.SpecificationPattern.Logic.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

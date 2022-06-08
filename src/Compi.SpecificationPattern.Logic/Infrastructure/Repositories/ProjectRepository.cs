@@ -1,4 +1,4 @@
-﻿using Compi.SpecificationPattern.Logic.DomainModel;
+﻿using Compi.SpecificationPattern.Logic.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

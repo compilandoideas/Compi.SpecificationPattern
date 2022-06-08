@@ -1,4 +1,4 @@
-﻿namespace Compi.SpecificationPattern.Logic.DomainModel
+﻿namespace Compi.SpecificationPattern.Logic.Domain
 {
     public class Person
     {
